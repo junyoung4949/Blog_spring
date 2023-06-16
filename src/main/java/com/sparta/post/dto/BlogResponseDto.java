@@ -1,12 +1,18 @@
 package com.sparta.post.dto;
 
+import com.sparta.post.enitiy.Blog;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
 public class BlogResponseDto {
 
     private Long id;
     private String title;
     private String userName;
-
     private String content;
+
+    private String massage;
 
     public BlogResponseDto(Long id, String title, String userName, String content) {
         this.id = id;
@@ -15,19 +21,14 @@ public class BlogResponseDto {
         this.content = content;
     }
 
-    public Long getId() {
-        return id;
+    public void SetMassage(String massage) {
+        this.massage = massage;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getContent() {
-        return content;
+    public BlogResponseDto(Blog blog) {
+        this.id = blog.getId();
+        this.title = blog.getTitle();
+        this.userName = blog.getUserName();
+        this.content = blog.getContent();
     }
 }
